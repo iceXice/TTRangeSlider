@@ -19,11 +19,34 @@
 - (void)logControlEvent:(TTRangeSlider *)sender {
     NSLog(@"Standard slider updated. Min Value: %.0f Max Value: %.0f", sender.selectedMinimum, sender.selectedMaximum);
 }
-
+-(void)test
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 100, 300, 200)];
+    
+    view.backgroundColor = UIColor.redColor;
+    
+    [self.view addSubview:view];
+    
+    //单个选择
+    TTRangeSlider* slider = [[TTRangeSlider alloc]initWithFrame:CGRectMake(30, 100, 200, 30)];
+    
+//    slider.handleDiameter = 15;
+    slider.maxValue = 100;
+    slider.minValue = 0;
+    slider.lineHeight = 3.5;
+    slider.selectedMinimum= 20;
+    slider.selectedMaximum =100;
+    slider.tintColor = UIColor.whiteColor;
+    slider.tintColorBetweenHandles = UIColor.blackColor;
+    [slider setHideLabels:YES];
+    [slider hiddenRightButton];
+    [view addSubview:slider];
+ 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [self test];
     //standard rsnge slider
     self.rangeSlider.minValue = 0;
     self.rangeSlider.maxValue = 200;

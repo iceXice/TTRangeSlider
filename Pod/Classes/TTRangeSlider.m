@@ -159,6 +159,11 @@ static const CGFloat kLabelsFontSize = 12.0f;
     [self refresh];
 }
 
+-(void)hiddenRightButton
+{
+    self.rightHandle.hidden = YES;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
 
@@ -372,8 +377,10 @@ static const CGFloat kLabelsFontSize = 12.0f;
                 [self animateHandle:self.leftHandle withSelection:YES];
             }
             else {
-                self.rightHandleSelected = YES;
-                [self animateHandle:self.rightHandle withSelection:YES];
+                if (!self.rightHandle.hidden) {
+                    self.rightHandleSelected = YES;
+                    [self animateHandle:self.rightHandle withSelection:YES];
+                }
             }
         }
 
@@ -857,6 +864,8 @@ static const CGFloat kLabelsFontSize = 12.0f;
   slider.selectedMaximum -= slider.step;
   self.accessibilityValue = slider.maxLabel.string;
 }
+
+
 
 @end
 

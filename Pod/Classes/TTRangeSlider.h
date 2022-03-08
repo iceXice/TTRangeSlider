@@ -222,4 +222,6 @@ typedef NS_ENUM(NSInteger, HandleType) {
  */
 @property (nonatomic, assign) CGSize handleSize;
 
+-(void)hiddenRightButton;
+
 @end
